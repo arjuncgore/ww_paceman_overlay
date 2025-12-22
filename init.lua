@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function(cfg, _)
+M.setup = function(_, cfg)
     -- ==== CONFIG ====
     local hours = 12
     local hoursBetween = 1
