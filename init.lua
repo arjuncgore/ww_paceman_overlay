@@ -110,6 +110,7 @@ M.setup = function(_, cfg)
 
         if state.screen == "generating" then
             update_overlay()
+            disable_overlay()
         elseif state.screen == "wall" then
             update_overlay()
             show_overlay()
