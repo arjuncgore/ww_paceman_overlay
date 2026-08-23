@@ -92,8 +92,6 @@ M.setup = function(_, cfg)
     local update_overlay = function()
         requests.trigger_http_send(endpoint, "paceman")
         data = requests.receive_data("paceman")
-
-        show_overlay()
     end
 
     local disable_overlay = function()
@@ -110,8 +108,11 @@ M.setup = function(_, cfg)
     waywall.listen("state", function()
         local state = waywall.state()
 
-        if state.screen == "wall" then
+        if state.screen == "generating" then
             update_overlay()
+        elseif state.screen == "wall" then
+            update_overlay()
+            show_overlay()
         else
             disable_overlay()
         end
